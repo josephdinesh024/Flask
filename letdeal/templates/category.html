@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<div class="px-10 bg-gray-100 flex flex-wrap -m-4">
+    {% for category in categorys %}
+    <div class="lg:w-1/3 sm:w-1/2 p-4">
+      <div class="flex relative">
+        <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="/static/{{category.name.lower()}}.jpeg">
+        <a href="{{url_for('category_list',category_id=category.category_id)}}" class="px-8 py-10 relative z-5 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-60">
+          <h1 class="title-font text-lg py-16 font-semibold text-gray-900 mb-3"> {{category.name}} </h1>
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+
+<form method="post">
+    name
+    <input type="text" id="names" name="names">
+    <br>
+    <button>ADD</button>
+</form>
+<!--
+<p class="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+ <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">THE SUBTITLE</h2>
+                 
+-->
+{% endblock %}

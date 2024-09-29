@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <title>LetDeal</title>
+    <link rel="icon" href="/static/logo.png" type="image/icon type">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Free open source Tailwind CSS Store template">
+    <meta name="keywords" content="tailwind,tailwindcss,tailwind css,css,starter template,free template,store template, shop layout, minimal, monochrome, minimalistic, theme, nordic">
+    
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+	
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/login.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- <div>
+    <a href="login">login</a>
+    <a href="profile">profile</a>
+    <a href="seller">seller</a>
+    <a href="product">product</a>
+    <a href="buyform">buyform</a>
+    </div> -->
+    {% block body %} {% endblock %}
+</body>

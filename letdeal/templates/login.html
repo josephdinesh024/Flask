@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block login %}
+
+<form method="post" action="{{url_for('login',varify=1)}}">
+<div class="overlay">
+
+    <!-- component -->
+    <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+        <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+            <button onclick="cancle()" type="button" class="absolute z-10 right-0">
+                <svg width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="m16.768 15 5.366-5.366a1.249 1.249 0 1 0-1.768-1.768L15 13.233 9.634 7.865a1.249 1.249 0 1 0-1.768 1.768L13.233 15l-5.367 5.366a1.249 1.249 0 1 0 1.768 1.768L15 16.767l5.366 5.367a1.247 1.247 0 0 0 1.768 0 1.249 1.249 0 0 0 0-1.768L16.768 15Z" fill="#202020"></path>
+                    <mask id="close_svg__a" maskUnits="userSpaceOnUse" x="7" y="7" width="16" height="16" style="mask-type: luminance;">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="m16.768 15 5.366-5.366a1.249 1.249 0 1 0-1.768-1.768L15 13.233 9.634 7.865a1.249 1.249 0 1 0-1.768 1.768L13.233 15l-5.367 5.366a1.249 1.249 0 1 0 1.768 1.768L15 16.767l5.366 5.367a1.247 1.247 0 0 0 1.768 0 1.249 1.249 0 0 0 0-1.768L16.768 15Z" fill="#fff"></path>
+                    </mask>
+                    <g mask="url(#close_svg__a)">
+                    <path d="M0 0h30v30H0z"></path>
+                    </g>
+                </svg>
+            </button>
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+            </div>
+            <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+                <div class="max-w-md mx-auto">
+                    <div>
+                        <h1 class="text-2xl font-semibold">Login Here</h1>
+                    </div>
+                    <div class="divide-y divide-gray-200">
+                        <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+                            <div class="relative">
+                                {{form.phone_number(class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600")}}
+                                <label for="email" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">{{form.phone_number.label}}</label>
+                            </div>
+                            <div class="relative">
+                                {{form.otp(class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600")}}
+                                <label for="password" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">{{form.otp.label}}</label>
+                            </div>
+                            <div class="relative">
+                                <button id="verify" type="submit" class=" bg-blue-500 text-white rounded-md px-2 py-1">verify</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+</form>
+
+
+<!-- <script>
+    $(document).ready(function(){
+        $("#verify").click(function(event){
+            // event.preventDefault();
+            var otp = document.getElementById("otp").value;
+            var phone = document.getElementById("phone_number").value;
+            console.log(otp+phone)
+            $.ajax({
+            url : "/login?varify=1",
+            type : 'POST',
+            data : {
+                'otp':otp,
+                'phone':phone
+            },
+            success : function(){
+                console.log("success");
+            },
+            error : function(){
+                console.log("Error");
+            }
+
+        });
+        })
+    })
+</script> -->
+{% endblock %}

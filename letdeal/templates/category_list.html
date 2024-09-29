@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<section class="text-gray-600 body-font overflow-hidden">
+    <div class="container px-5 py-24 mx-auto">
+        {% for product in products %}
+        <div class=" images hover:grow hover:shadow-xl py-10 flex flex-wrap md:flex-nowrap border border-gray-300">
+          <div class="md:w-48 xl:w-48 p-6 flex flex-col ">
+            <img class="w-48 h-36" src="static/category/{{product.image_url}}" alt="content">
+          </div>
+          <div class="md:flex-grow px-10">
+            <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{product.name}}</h2>
+            <p class="leading-relaxed">{{product.description}}</p>
+            <a href="{{url_for('buyform',product_id=product.product_id)}}" class="text-indigo-500 inline-flex items-center mt-4">Learn More
+              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  {% endblock %}
